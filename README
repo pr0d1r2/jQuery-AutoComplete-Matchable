@@ -1,0 +1,14 @@
+JQuery AutoComplete Matchable by Marcin Nowicki <pr0d1r2@gmail.com>
+Licensed on MIT License
+
+Based on:
+
+JQuery AutoComplete by Dylan Verheul <dylan@dyve.net>
+Licensed like jQuery, see http://docs.jquery.com/License.
+http://dyve.net/jquery/?autocomplete
+http://codeintensity.blogspot.com/2008/07/update-on-rails-jquery-autocomplete.html
+
+
+
+Matchable means that when You type and value does not exist on list precisely
+input has added "not_matchable" class (which You can style for Your needs).
