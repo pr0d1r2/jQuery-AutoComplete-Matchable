@@ -24,6 +24,9 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 //
+// See for more details: http://github.com/Pr0d1r2/jQuery-AutoComplete-Matchable/tree
+//
+//
 // Based on:
 //
 // JQuery AutoComplete by Dylan Verheul <dylan@dyve.net>
