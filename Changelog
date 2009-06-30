@@ -1,2 +1,5 @@
 0.1.0
 * Currently it support case insensitive strings only.
+
+0.2.0
+* Added support for not matchable text (for example shown under the input).

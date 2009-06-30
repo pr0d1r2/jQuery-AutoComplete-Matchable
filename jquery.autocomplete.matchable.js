@@ -1,5 +1,5 @@
 //
-// JQuery AutoComplete Matchable by Marcin Nowicki <pr0d1r2@gmail.com>
+// JQuery AutoComplete Matchable version 0.2.0 by Marcin Nowicki <pr0d1r2@gmail.com>
 // Licensed on MIT License
 //
 // Copyright (c) 2009 Marcin Nowicki
@@ -227,11 +227,27 @@ jQuery.autocomplete = function(input, options) {
     $results.html("");
     $input.val(v);
     hideResultsNow();
+    removeNotMatchable();
     if (options.onItemSelect) {
       setTimeout(function() { options.onItemSelect(li) }, 1);
     }
-    if (options.useNotMatchableClass) {
+  };
+
+  function removeNotMatchable() {
+    if(options.useNotMatchableClass){
       $input.removeClass(options.notMatchableClass);
+      if(options.useNotMatchableText){
+        $input.siblings(options.notMatchableText).hide();
+      }
+    }
+  };
+
+  function addNotMatchable() {
+    if(options.useNotMatchableClass){
+      $input.addClass(options.notMatchableClass);
+      if(options.useNotMatchableText){
+        $input.siblings(options.notMatchableText).show();
+      }
     }
   };
 
@@ -312,9 +328,7 @@ jQuery.autocomplete = function(input, options) {
 
   function receiveData(q, data) {
     if (data) {
-      if (options.useNotMatchableClass) {
-        $input.addClass(options.notMatchableClass);
-      }
+      addNotMatchable();
 
       $input.removeClass(options.loadingClass);
       results.innerHTML = "";
@@ -336,14 +350,12 @@ jQuery.autocomplete = function(input, options) {
         for (var i=0; i < num; i++) {
           var row = data[i];
           if( row[0].toLowerCase() == q.toLowerCase() ){
-            $input.removeClass(options.notMatchableClass);
+            removeNotMatchable();
           }
         }
       }
     } else {
-      if (options.useNotMatchableClass) {
-        $input.addClass(options.notMatchableClass);
-      }
+      addNotMatchable();
       hideResultsNow();
     }
   };
@@ -574,8 +586,10 @@ jQuery.fn.autocomplete = function(url, options, data) {
     maxItemsToShow: -1,
     autoFill: false,
     width: 0,
-    useNotMatchableClass: 1,
-    notMatchableClass: "not_matchable"
+    useNotMatchableClass: true,
+    notMatchableClass: "not_matchable",
+    useNotMatchableText: true,
+    notMatchableText: ".not_matchable_text"
   }, options);
   options.width = parseInt(options.width, 10);
 
