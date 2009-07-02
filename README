@@ -19,3 +19,5 @@ input has added "not_matchable" class (which You can style for Your needs).
 
 Support for sibbling to input ".not_matchable_text" container that is shown/hide
 as well as "not_matchable" class is added/removed.
+
+Support for callback methods when removing/adding not matchable.

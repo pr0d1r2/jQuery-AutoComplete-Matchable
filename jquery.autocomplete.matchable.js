@@ -1,5 +1,5 @@
 //
-// JQuery AutoComplete Matchable version 0.2.0 by Marcin Nowicki <pr0d1r2@gmail.com>
+// JQuery AutoComplete Matchable version 0.3.0 by Marcin Nowicki <pr0d1r2@gmail.com>
 // Licensed on MIT License
 //
 // Copyright (c) 2009 Marcin Nowicki
@@ -239,6 +239,9 @@ jQuery.autocomplete = function(input, options) {
       if(options.useNotMatchableText){
         $input.siblings(options.notMatchableText).hide();
       }
+      if(options.useRemoveNotMatchableCallbackMethod){
+        eval(options.removeNotMatchableCallbackMethod)
+      }
     }
   };
 
@@ -247,6 +250,9 @@ jQuery.autocomplete = function(input, options) {
       $input.addClass(options.notMatchableClass);
       if(options.useNotMatchableText){
         $input.siblings(options.notMatchableText).show();
+      }
+      if(options.useAddNotMatchableCallbackMethod){
+        eval(options.addNotMatchableCallbackMethod)
       }
     }
   };
@@ -589,7 +595,11 @@ jQuery.fn.autocomplete = function(url, options, data) {
     useNotMatchableClass: true,
     notMatchableClass: "not_matchable",
     useNotMatchableText: true,
-    notMatchableText: ".not_matchable_text"
+    notMatchableText: ".not_matchable_text",
+    useAddNotMatchableCallbackMethod: true,
+    addNotMatchableCallbackMethod: "alert('please code Example.add_callback_method(); (or something similar) and insert it into addNotMatchableCallbackMethod or set useAddNotMatchableCallbackMethod to false')",
+    useRemoveNotMatchableCallbackMethod: true,
+    removeNotMatchableCallbackMethod: "alert('please code Example.remove_callback_method(); (or something similar) and instert it into removeNotMatchableCallbackMethod or set useAddNotMatchableCallbackMethod to false')"
   }, options);
   options.width = parseInt(options.width, 10);
 

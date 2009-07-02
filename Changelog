@@ -3,3 +3,6 @@
 
 0.2.0
 * Added support for not matchable text (for example shown under the input).
+
+0.3.0
+* Added support for callback methods when adding/removing not_matchable.
